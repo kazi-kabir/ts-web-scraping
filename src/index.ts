@@ -5,7 +5,7 @@ import cheerio from 'cheerio';
 // const url = 'https://www.premierleague.com/stats/top/players/goals?se=-1&cl=-1&iso=-1&po=-1?se=-1'; // URL we're scraping
 const AxiosInstance = axios.create(); // Create a new Axios Instance
 
-const url = 'https://en.wikipedia.org/wiki/List_of_unicorn_startup_companies'
+const url = 'https://www.premierleague.com/stats/top/players/goals?se=-1&cl=-1&iso=-1&po=-1?se=-1'
 
 interface CompanyData {
     company: string;
