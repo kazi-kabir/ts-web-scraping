@@ -3,8 +3,8 @@ import cheerio from 'cheerio';
 
 
 
-const url = 'https://en.wikipedia.org/wiki/List_of_unicorn_startup_companies'; // URL we're scraping
-const AxiosInstance = axios.create(); // Create a new Axios Instance
+const url = 'https://en.wikipedia.org/wiki/List_of_unicorn_startup_companies'; 
+const AxiosInstance = axios.create(); 
 
 
 interface CompanyData {
