@@ -9,6 +9,7 @@ const AxiosInstance = axios.create();
 
 interface CompanyData {
     company: string;
+    country: string;
 }
 
 AxiosInstance.get(url)
@@ -20,18 +21,21 @@ AxiosInstance.get(url)
         const topCompanies: CompanyData[] = [];
 
         statsTable.each((i, elem) => {
-            const company: string = $(elem).find('td > a').text()
+            let company: string = $(elem).find('td > a').attr('title');
+            if(company === '' || company === undefined) return;
             
-            if(company === '') return;
-            
+            let country: string = $(elem).find('td').text(); 
+
             topCompanies.push(
                 {
-                    company
+                    company,
+                    country
                 }
             )
         })
 
-        console.log(topCompanies)
+        topCompanies.length = 10;  
+        console.log(topCompanies);
     }
   )
   .catch(console.error); 
