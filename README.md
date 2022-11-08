@@ -5,8 +5,15 @@ using this tutorial -> https://dev.to/caelinsutch/building-a-web-scraper-in-type
 TODO
 
 UPDATED 8/11/22
-- use own data: painful experience
-- serve data on a frontend: unlikely to ever reach this point
+x use own data
+- get ONLY company using cheerio
+  - how do selectors work in cheerio?
+
+
+
+
+BACKLOG
+- serve data on a frontend: todo much later
 
 ended up learning way more about cheerio than typescript.
 getting stuck into something has its cons.

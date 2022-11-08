@@ -20,7 +20,10 @@ AxiosInstance.get(url)
         const topCompanies: CompanyData[] = [];
 
         statsTable.each((i, elem) => {
-            const company: string = $(elem).find('td > a ').text();
+            const company: string = $(elem).find('td > a').text()
+            
+            if(company === '') return;
+            
             topCompanies.push(
                 {
                     company
