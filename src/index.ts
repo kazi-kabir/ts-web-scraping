@@ -2,15 +2,13 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 
 
-// const url = 'https://www.premierleague.com/stats/top/players/goals?se=-1&cl=-1&iso=-1&po=-1?se=-1'; // URL we're scraping
+
+const url = 'https://en.wikipedia.org/wiki/List_of_unicorn_startup_companies'; // URL we're scraping
 const AxiosInstance = axios.create(); // Create a new Axios Instance
 
-const url = 'https://www.premierleague.com/stats/top/players/goals?se=-1&cl=-1&iso=-1&po=-1?se=-1'
 
 interface CompanyData {
     company: string;
-    industry: string;
-    country: string;
 }
 
 AxiosInstance.get(url)
@@ -18,23 +16,19 @@ AxiosInstance.get(url)
     response => {
         const html = response.data; 
         const $ = cheerio.load(html); 
-        const statsTable: cheerio.Cheerio = $('.wikitable sortable jquery-tablesorter tbody tr'); 
-        console.log(statsTable); 
+        const statsTable: cheerio.Cheerio = $('.wikitable tbody > tr');
         const topCompanies: CompanyData[] = [];
 
-        // statsTable.each((i, elem) => {
-        //     // $(elem).find('.playerName > strong').text();
+        statsTable.each((i, elem) => {
+            const company: string = $(elem).find('td > a ').text();
+            topCompanies.push(
+                {
+                    company
+                }
+            )
+        })
 
-        //     const company: string = $(elem).get(0).find('tr,td,a,title').text(); // Parse the rank
-        //     const industry: string = $(elem).find('title').text(); // Parse the rank
-        //     const country: string = $(elem).find('title').text(); // Parse the rank
-        //     topCompanies.push({
-        //       company,
-        //       industry,
-        //       country
-        //     })
-        // })
-        // console.log(topCompanies) 
+        console.log(topCompanies)
     }
   )
   .catch(console.error); 
