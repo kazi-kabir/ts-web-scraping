@@ -15,5 +15,6 @@ x use own data
 BACKLOG
 - serve data on a frontend: todo much later
 
-ended up learning way more about cheerio than typescript.
+journal!
+8-11-22: ended up learning way more about cheerio than typescript.
 getting stuck into something has its cons.

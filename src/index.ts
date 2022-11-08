@@ -25,6 +25,9 @@ AxiosInstance.get(url)
             if(company === '' || company === undefined) return;
             
             let country: string = $(elem).find('td').text(); 
+            
+            let foo = country.replace(/\s/g, '');
+
 
             topCompanies.push(
                 {
