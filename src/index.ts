@@ -20,10 +20,8 @@ AxiosInstance.get(url)
         statsTable.each((i, elem) => {
             let details: string = $(elem).find('td').text(); 
             details = details.split(' ').join('');
-            arr[i] = details;
-            arr.length = 10;
+            console.log(details);
         })
-        arr.forEach(n => console.log(n))
     }
   )
   .catch(console.error); 
