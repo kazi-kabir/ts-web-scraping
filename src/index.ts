@@ -8,6 +8,7 @@ interface CompanyData {
     details: string;
 }
 
+
 AxiosInstance.get(url)
   .then( 
     response => {
@@ -15,13 +16,15 @@ AxiosInstance.get(url)
         const $ = cheerio.load(html); 
         const statsTable: cheerio.Cheerio = $('.wikitable tbody > tr');
         const topCompanies: CompanyData[] = [];
-        let arr = [];
 
         statsTable.each((i, elem) => {
             let details: string = $(elem).find('td').text(); 
             details = details.split(' ').join('');
-            console.log(details);
+            topCompanies.push({details});
         })
+        
+        console.log(topCompanies)
+        
     }
-  )
-  .catch(console.error); 
+)
+.catch(console.error); 
