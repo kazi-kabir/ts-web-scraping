@@ -8,6 +8,22 @@ interface CompanyData {
     details: string;
 }
 
+const cleanData = (topCompanies: CompanyData[]): CompanyData[] => {
+    // manipulating data directly, bad practice
+    topCompanies.length = 50;
+
+    // clear out the empty ones
+    // store into new array
+    topCompanies
+    .filter(company => company.details !== '');
+    
+    // printing 
+    topCompanies
+    .forEach(company => console.log(company));
+
+    return [];
+}
+
 
 AxiosInstance.get(url)
   .then( 
@@ -21,10 +37,8 @@ AxiosInstance.get(url)
             let details: string = $(elem).find('td').text(); 
             details = details.split(' ').join('');
             topCompanies.push({details});
+            cleanData(topCompanies);
         })
-        
-        console.log(topCompanies)
-        
     }
 )
 .catch(console.error); 
