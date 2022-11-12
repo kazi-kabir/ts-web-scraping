@@ -8,18 +8,11 @@ interface CompanyData {
     details: string;
 }
 
-const cleanData = (topCompanies: CompanyData[]): CompanyData[] => {
+const cleanData = (topCompanies: string[]): CompanyData[] => {
     // manipulating data directly, bad practice
-    topCompanies.length = 50;
 
-    // clear out the empty ones
-    // store into new array
-    topCompanies
-    .filter(company => company.details !== '');
-    
-    // printing 
-    topCompanies
-    .forEach(company => console.log(company));
+    topCompanies.length = 50;
+    console.log(topCompanies);
 
     return [];
 }
@@ -31,14 +24,15 @@ AxiosInstance.get(url)
         const html = response.data; 
         const $ = cheerio.load(html); 
         const statsTable: cheerio.Cheerio = $('.wikitable tbody > tr');
-        const topCompanies: CompanyData[] = [];
+        const topCompanies: string[] = [];
 
         statsTable.each((i, elem) => {
             let details: string = $(elem).find('td').text(); 
             details = details.split(' ').join('');
-            topCompanies.push({details});
-            cleanData(topCompanies);
-        })
+            topCompanies.push(details);
+        });
+        cleanData(topCompanies);
+        topCompanies.length = 20;
     }
 )
 .catch(console.error); 
