@@ -12,7 +12,14 @@ const cleanData = (topCompanies: string[]): CompanyData[] => {
     // manipulating data directly, bad practice
 
     topCompanies.length = 50;
-    console.log(topCompanies);
+    
+    let foo = topCompanies
+    .filter(company => company.length > 1);
+    
+    let bar = foo
+    .filter(company => !company.includes('CBInsights'))
+
+    console.log(bar);
 
     return [];
 }
