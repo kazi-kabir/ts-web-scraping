@@ -5,7 +5,10 @@ const url = 'https://en.wikipedia.org/wiki/List_of_unicorn_startup_companies';
 const AxiosInstance = axios.create(); 
 
 interface CompanyData {
-    details: string;
+    company: string,
+    valuation: number,
+    country: string
+    founders: string,
 }
 
 const cleanData = (topCompanies: string[]): CompanyData[] => {
@@ -13,6 +16,8 @@ const cleanData = (topCompanies: string[]): CompanyData[] => {
 
     topCompanies.length = 50;
     
+    let unacceptableStrings: string[] = ['CBInsights', 'VentureBeat', 'TechCrunch', 'Incmagazine'];
+
     let foo = topCompanies
     .filter(company => company.length > 1);
     
@@ -20,7 +25,6 @@ const cleanData = (topCompanies: string[]): CompanyData[] => {
     .filter(company => !company.includes('CBInsights'))
 
     console.log(bar);
-
     return [];
 }
 
