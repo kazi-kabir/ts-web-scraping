@@ -1,7 +1,7 @@
-export const cleanData = (topCompanies: string[]): String[]  => {
-    topCompanies.length = 20;
+export const cleanData = (topCompanies: string[]): string[]  => {
+    //topCompanies.length = 20;
 
-    let unacceptableStrings: string[] = ['CBInsights', 'VentureBeat', 'TechCrunch', 'Incmagazine'];
+    const unacceptableStrings = 'CBInsights';
 
     // BADLY needs refactoring
     let filterOutEmpty = topCompanies
@@ -19,6 +19,8 @@ export const cleanData = (topCompanies: string[]): String[]  => {
     let filterOutVentureBeat = filterOutIncMagazine
     .filter(company => !company.includes('VentureBeat'));
 
-    console.log(filterOutVentureBeat);
+    let sanitisedData = topCompanies.filter(company => company.includes('TechCrunch' || 'VentureBeat' || 'Incmagazine' || ''))
+
+    console.log(sanitisedData);
     return [];
 };
