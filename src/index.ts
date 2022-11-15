@@ -14,17 +14,23 @@ interface CompanyData {
 const cleanData = (topCompanies: string[]): CompanyData[] => {
     // manipulating data directly, bad practice
 
-    topCompanies.length = 50;
+    topCompanies.length = 10;
     
     let unacceptableStrings: string[] = ['CBInsights', 'VentureBeat', 'TechCrunch', 'Incmagazine'];
 
-    let foo = topCompanies
+    let filterOutEmpty = topCompanies
     .filter(company => company.length > 1);
     
-    let bar = foo
-    .filter(company => !company.includes('CBInsights'))
+    let filterOutCBInsights = filterOutEmpty
+    .filter(company => !company.includes('CBInsights'));
 
-    console.log(bar);
+    let filterOutTechCrunch = filterOutCBInsights
+    .filter(company => !company.includes('TechCrunch'));
+
+    let filterOutIncMagazine = filterOutTechCrunch
+    .filter(company => !company.includes('Incmagazine'));
+
+    console.log(filterOutIncMagazine);
     return [];
 }
 
@@ -43,7 +49,6 @@ AxiosInstance.get(url)
             topCompanies.push(details);
         });
         cleanData(topCompanies);
-        topCompanies.length = 20;
     }
 )
 .catch(console.error); 
