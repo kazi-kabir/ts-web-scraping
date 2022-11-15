@@ -18,6 +18,7 @@ AxiosInstance.get(url)
             details = details.split(' ').join('');
             topCompanies.push(details);
         });
+        // somewhere here DEEP CLONE the data
         cleanData(topCompanies);
     }
 )
