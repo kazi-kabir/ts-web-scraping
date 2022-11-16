@@ -27,23 +27,25 @@ export const cleanData = (topCompanies: string[]): string[]  => {
 export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): CompanyData[] => {
     companyDataArray.length = 50;
     
-    console.log(companyDataArray[49]);
+    console.log(companyDataArray[1]);
 
     let convertedData: CompanyData[] = [];
     
     companyDataArray.forEach(company => {
-        let stringArray = company.split(/(\s+)/).filter(e => !e.includes('\n'));
+        let stringArray = company.split('\n').filter(e => !e.includes('\n'));
 
         let newObj: CompanyData = {
             company: stringArray[0],
             valuation: Number(stringArray[1]),
-            industry: stringArray[7],
-            country: stringArray[8],
-            founders: stringArray[9],
+            industry: stringArray[3],
+            country: stringArray[4],
+            founders: stringArray[5],
         }
         convertedData.push(newObj)
-        // console.log(stringArray);
     });
+
+    console.log(convertedData[49])
+    
     return [];
 
 }
