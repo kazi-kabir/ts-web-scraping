@@ -1,3 +1,5 @@
+import { CompanyData } from "./types";
+
 export const cleanData = (topCompanies: string[]): string[]  => {
     //topCompanies.length = 20;
 
@@ -19,8 +21,16 @@ export const cleanData = (topCompanies: string[]): string[]  => {
     let filterOutVentureBeat = filterOutIncMagazine
     .filter(company => !company.includes('VentureBeat'));
 
-    let sanitisedData = topCompanies.filter(company => company.includes('TechCrunch' || 'VentureBeat' || 'Incmagazine' || ''))
-
-    console.log(sanitisedData);
-    return [];
+    return filterOutVentureBeat;
 };
+
+export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): CompanyData[] => {
+    companyDataArray.length = 2;
+    companyDataArray.forEach(company => {
+        let stringArray = company.split(/(\s+)/);
+        console.log(stringArray);
+    });
+
+    return [];
+
+}

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
-import { cleanData } from './utils';
+import { cleanData, createArrayOfCompanyDataObjects } from './utils';
 
 const url = 'https://en.wikipedia.org/wiki/List_of_unicorn_startup_companies'; 
 const AxiosInstance = axios.create(); 
@@ -19,7 +19,9 @@ AxiosInstance.get(url)
             topCompanies.push(details);
         });
         // somewhere here DEEP CLONE the data
-        cleanData(topCompanies);
+        const deepCopy = JSON.parse(JSON.stringify(topCompanies)) as typeof topCompanies;
+        const cleanedDeepCopy = cleanData(deepCopy);
+        createArrayOfCompanyDataObjects(cleanedDeepCopy);
     }
 )
 .catch(console.error); 
