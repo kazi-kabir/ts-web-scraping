@@ -25,9 +25,11 @@ export const cleanData = (topCompanies: string[]): string[]  => {
 };
 
 export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): CompanyData[] => {
-    companyDataArray.length = 2;
+    companyDataArray.length = 50;
     
-    let companyData: CompanyData[] = [];
+    console.log(companyDataArray[49]);
+
+    let convertedData: CompanyData[] = [];
     
     companyDataArray.forEach(company => {
         let stringArray = company.split(/(\s+)/).filter(e => !e.includes('\n'));
@@ -39,12 +41,9 @@ export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): Com
             country: stringArray[8],
             founders: stringArray[9],
         }
-        companyData.push(newObj)
+        convertedData.push(newObj)
         // console.log(stringArray);
     });
-
-    console.log(companyData)
-
     return [];
 
 }
