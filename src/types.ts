@@ -1,6 +1,7 @@
 export interface CompanyData {
     company: string,
-    valuation: number,
+    valuation: number | undefined,
+    industry: string
     country: string
     founders: string,
 }
