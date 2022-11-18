@@ -6,6 +6,8 @@ const cors = require('cors');
 
 import companyDataStore from ".";
 
+const jsonCompanyData = JSON.stringify(companyDataStore);
+
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/companyData', (req, res) => {
-    res.json('foo');
+    res.send(jsonCompanyData);
 })
 
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`))

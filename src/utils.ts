@@ -25,7 +25,7 @@ export const cleanData = (topCompanies: string[]): string[]  => {
 };
 
 export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): CompanyData[] => {
-    companyDataArray.length = 50;
+    companyDataArray.length = 10;
     
     console.log(companyDataArray[30]);
 
@@ -44,8 +44,5 @@ export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): Com
         convertedData.push(newObj)
     });
 
-    console.log(convertedData[30])
-    
-    return [];
-
+    return convertedData;
 }
