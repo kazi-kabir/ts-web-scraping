@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
-    "mongodb": "^4.11.0"
+    "mongodb": "^4.11.0",
+    "mongoose": "^6.7.2"
   }
 }
