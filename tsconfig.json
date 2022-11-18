@@ -2,6 +2,8 @@
     "compilerOptions": {
       "target": "es6",
       "module": "commonjs",
+      "moduleResolution": "node",
+      "allowJs": true,
       "rootDir": "src",
       "outDir": "dist",
       "sourceMap": true,

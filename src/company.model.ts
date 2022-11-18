@@ -1,5 +1,4 @@
 import { Schema } from "mongoose";
-import { CompanyData } from "./types";
 
 const mongoose = require("mongoose");
 
