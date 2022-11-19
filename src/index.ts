@@ -25,7 +25,6 @@ AxiosInstance.get(url)
         const deepCopy = JSON.parse(JSON.stringify(topCompanies)) as typeof topCompanies;
         const cleanedDeepCopy = cleanData(deepCopy);
         companyDataStore = createArrayOfCompanyDataObjects(cleanedDeepCopy);
-        console.log(companyDataStore)
     }
 )
 .catch(console.error); 
