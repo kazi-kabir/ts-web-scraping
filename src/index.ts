@@ -5,6 +5,9 @@ import { cleanData, createArrayOfCompanyDataObjects } from './utils';
 
 const url = 'https://en.wikipedia.org/wiki/List_of_unicorn_startup_companies'; 
 const AxiosInstance = axios.create(); 
+const express = require('express');
+const app = express();
+const port = 3050;
 
 let companyDataStore: CompanyData[];
 
@@ -29,22 +32,12 @@ AxiosInstance.get(url)
 )
 .catch(console.error); 
 
-const express = require('express');
-const app = express();
-const port = 3050;
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
 app.get('/', (req, res) => {
     res.send('Hello world')
 });
 
 app.get('/companyData', (req, res) => {
-    res.json(JSON.stringify(companyDataStore));
+    res.json(JSON.parse(JSON.stringify(companyDataStore)));
 })
 
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`))
