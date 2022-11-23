@@ -1,7 +1,7 @@
 import axios from 'axios';
-import cheerio from 'cheerio';
 import { CompanyData } from './types';
 import { cleanData, createArrayOfCompanyDataObjects } from './utils';
+import cheerio, { Cheerio, load } from 'cheerio';
 
 const url = 'https://en.wikipedia.org/wiki/List_of_unicorn_startup_companies'; 
 const AxiosInstance = axios.create(); 
@@ -15,8 +15,8 @@ AxiosInstance.get(url)
   .then( 
     response => {
         const html = response.data; 
-        const $ = cheerio.load(html); 
-        const statsTable: cheerio.Cheerio = $('.wikitable tbody > tr');
+        const $ = load(html); 
+        const statsTable: Cheerio<any> = $('.wikitable tbody > tr');
         const topCompanies: string[] = [];
 
         statsTable.each((i, elem) => {
