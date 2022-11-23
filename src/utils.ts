@@ -6,6 +6,7 @@ export const cleanData = (topCompanies: string[]): string[]  => {
     const unacceptableStrings = 'CBInsights';
 
     // BADLY needs refactoring
+    // create a function that filters out the string based on the array
     let filterOutEmpty = topCompanies
     .filter(company => company.length > 1);
 
@@ -26,8 +27,6 @@ export const cleanData = (topCompanies: string[]): string[]  => {
 
 export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): CompanyData[] => {
     companyDataArray.length = 10;
-    
-    console.log(companyDataArray[30]);
 
     let convertedData: CompanyData[] = [];
     
@@ -41,8 +40,20 @@ export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): Com
             country: stringArray[4],
             founders: stringArray[5],
         }
-        convertedData.push(newObj)
     });
-
     return convertedData;
 }
+
+export const splitStringByCapitalisation = (name: String)  => {
+
+    let nameArray: String[] = []
+
+    for(let i = 0; i < name.length; i++) {
+        console.log(name.charAt[i])
+    }
+
+
+    return nameArray;
+}
+let res = splitStringByCapitalisation('foo')
+console.log(res)
