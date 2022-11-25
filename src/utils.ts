@@ -38,22 +38,24 @@ export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): Com
             valuation: Number(stringArray[1]),
             industry: stringArray[3],
             country: stringArray[4],
-            founders: stringArray[5],
+            founders: splitStringByCapitalisation(stringArray[5]),
         }
+
+        convertedData.push(newObj);
     });
     return convertedData;
 }
 
 export const splitStringByCapitalisation = (name: String)  => {
 
-    let nameArray: String[] = []
+    let nameArray: string[] = [];
 
     for(let i = 0; i < name.length; i++) {
-        console.log(name.charAt[i])
+        nameArray.push(name[i]);
     }
-
 
     return nameArray;
 }
-let res = splitStringByCapitalisation('foo')
-console.log(res)
+
+let res = splitStringByCapitalisation('foo');
+console.log(res);
