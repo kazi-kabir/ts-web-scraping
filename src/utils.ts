@@ -38,7 +38,7 @@ export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): Com
             valuation: Number(stringArray[1]),
             industry: stringArray[3],
             country: stringArray[4],
-            founders: splitStringByCapitalisation(stringArray[5]),
+            founders: stringArray[5],
         }
 
         convertedData.push(newObj);
@@ -54,8 +54,14 @@ export const splitStringByCapitalisation = (name: String)  => {
         nameArray.push(name[i]);
     }
 
-    return nameArray;
+    for(let letter in nameArray) {
+        if(nameArray.indexOf(letter) === 0) return;
+
+        if(nameArray[letter] === nameArray[letter].toUpperCase()) {
+            
+        }
+    }
 }
 
-let res = splitStringByCapitalisation('foo');
+let res = splitStringByCapitalisation('SamBankmanFriedandLary');
 console.log(res);
