@@ -57,22 +57,17 @@ export const splitStringByCapitalisation = (name: String)  => {
     // search for and
     // insert a space before and after
 
-    let nameArray: string[] = [];
+    let cleanedName = '';
 
     for(let i = 0; i < name.length; i++) {
-        nameArray.push(name[i]);
-    }
-
-    for(let letter in name) {
-        if(nameArray.indexOf(letter) === 0) return;
-
-        if(nameArray[letter] === nameArray[letter].toUpperCase()) {
-            
+        cleanedName = name[i];
+        if(name[i] === name[i].toUpperCase()) {
+            console.log(name[i])
+            cleanedName = name.slice(0, i) + ' ' + name.slice(i);
         }
     }
 
-    console.log(name);
-
+    console.log(cleanedName);
 }
 
 let res = splitStringByCapitalisation('SamBankmanFriedandLary');
