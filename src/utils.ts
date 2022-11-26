@@ -48,19 +48,31 @@ export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): Com
 
 export const splitStringByCapitalisation = (name: String)  => {
 
+    // strings come as one single text
+    // skip over the first capitalised letter
+    // search for the next capitalised letter
+    // insert a space before it
+    // search for comma 
+    // and insert a space AFTER the comma
+    // search for and
+    // insert a space before and after
+
     let nameArray: string[] = [];
 
     for(let i = 0; i < name.length; i++) {
         nameArray.push(name[i]);
     }
 
-    for(let letter in nameArray) {
+    for(let letter in name) {
         if(nameArray.indexOf(letter) === 0) return;
 
         if(nameArray[letter] === nameArray[letter].toUpperCase()) {
             
         }
     }
+
+    console.log(name);
+
 }
 
 let res = splitStringByCapitalisation('SamBankmanFriedandLary');
