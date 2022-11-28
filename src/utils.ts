@@ -53,11 +53,11 @@ export const splitStringByCapitalisation = (name: String)  => {
         cleanedName += name[i];
         if(name[i] === name[i].toUpperCase()) {
             console.log(name[i])
-            let randStr = cleanedName.substring(0, i)
-            console.log(randStr)
+            let randStr = cleanedName.substring(0, i+1) + ' ' + cleanedName.substring(i, cleanedName.length);
+            cleanedName = randStr;
+            console.log(cleanedName);
         }
     }
-    console.log(cleanedName);
 }
 
 splitStringByCapitalisation('SamBankmanFriedandLary');
