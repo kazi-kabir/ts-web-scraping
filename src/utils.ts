@@ -53,11 +53,13 @@ export const splitStringByCapitalisation = (name: String)  => {
         cleanedName += name[i];
         if(name[i] === name[i].toUpperCase()) {
             console.log(name[i])
-            let randStr = cleanedName.substring(0, i+1) + ' ' + cleanedName.substring(i, cleanedName.length);
-            cleanedName = randStr;
-            console.log(cleanedName);
+            // ok so what do we have here
+            // we have access to all the capitalised letters
+            // 
+                      
         }
     }
+    console.log(cleanedName);
 }
 
 splitStringByCapitalisation('SamBankmanFriedandLary');
