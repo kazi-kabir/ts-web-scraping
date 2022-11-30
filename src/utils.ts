@@ -48,25 +48,22 @@ export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): Com
 
 export const splitStringByCapitalisation = (name: String)  => {
 
-    let specChar = [];
     let cleanedName = [];
     for(let i = 0; i < name.length; i++) {
         cleanedName.push(name[i]);
-        if(name[i] === name[i].toUpperCase()) {
-            let trigger = 0;
-            // ok so what do we have here
-            // we have access to all the capitalised letters
-            // we need to add a space before the next capitalised letters
-            // let's just add a space before each letter
-            // cleanedName.splice(i, trigger, " ");
+    }
 
-            specChar.push(name[i]);
-            // how do we access the second letter first?
-            trigger++;
+    let specificCharacters: string[] = [];
+    let indexVal: number[] = [];
+    for (let character in cleanedName) {
+        if(cleanedName[character] === cleanedName[character].toUpperCase()) {
+            specificCharacters.push(cleanedName[character]) 
+            indexVal.push(Number(character));
         }
     }
 
-    console.log(specChar)
+    console.log(indexVal);
+    console.log(cleanedName);
 }
 
 splitStringByCapitalisation('SamBankmanFriedandLary');
