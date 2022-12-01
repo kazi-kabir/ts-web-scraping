@@ -38,7 +38,7 @@ export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): Com
             valuation: Number(stringArray[1]),
             industry: stringArray[3],
             country: stringArray[4],
-            founders: stringArray[5],
+            founders: splitStringByCapitalisation(stringArray[5]),
         }
 
         convertedData.push(newObj);
@@ -59,9 +59,7 @@ export const splitStringByCapitalisation = (name: string)  => {
 
 const removeConjunctions = (name: string) => {
     // TODO, remove commas
-
-
-    return name.replace(/and/g, '')
+    return name.replace(/[, ]+/g, " ") && name.replace(/and/g, '')
 }
 
 splitStringByCapitalisation('SamBankmanFriedandLary');
