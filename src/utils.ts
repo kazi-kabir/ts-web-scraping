@@ -53,37 +53,14 @@ export const splitStringByCapitalisation = (name: string)  => {
     console.log(conjunctionRemovedName)
 
     let cleanedName = [];
-    for(let i = 0; i < conjunctionRemovedName.length; i++) {
-        cleanedName.push(conjunctionRemovedName[i]);
-    }
-
-    let specificCharacters: string[] = [];
-    let indexVal: number[] = [];
-    for (let character in cleanedName) {
-        if(cleanedName[character] === cleanedName[character].toUpperCase()) {
-            specificCharacters.push(cleanedName[character]) 
-            indexVal.push(Number(character));
-        }
-    }
-
-    for(let j = 0; j < cleanedName.length; j++) {
-        if(indexVal.includes(j)) {
-            if(j > 1) {
-                // cleanedName.splice(j, 0, " ");
-                
-            }
-        }
-    }
-
-//    cleanedName.splice(3, 0, " ");
-//    cleanedName.splice(11, 0, " ");
-//    cleanedName.splice(20, 0, " ");
-
-    console.log(indexVal);
+    cleanedName = conjunctionRemovedName.match(/[A-Z][a-z]+/g);
     console.log(cleanedName);
 }
 
 const removeConjunctions = (name: string) => {
+    // TODO, remove commas
+
+
     return name.replace(/and/g, '')
 }
 
