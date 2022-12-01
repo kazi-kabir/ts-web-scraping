@@ -62,27 +62,27 @@ export const splitStringByCapitalisation = (name: String)  => {
         }
     }
 
-    let len: number = 0; 
-    while(len < cleanedName.length) {
-        if (cleanedName.indexOf(len) === indexVal[len]) {
-            console.log('FOOO')
-            return true;
+    // loop through each char in array
+    // WHEN index value reaches index val array
+    // insert space before
+    // add 1 to each index val el
+
+    for(let j = 0; j < cleanedName.length; j++) {
+        if(indexVal.includes(j)) {
+            if(j > 1) {
+                cleanedName.splice(j, 0, " ");
+            }
         }
-        len++;
     }
-
-    // compare the two arrays
-    // check if index of cur === index of indexval
-
 
     // look for the pattern here
     // for each time a space is added
     // the rest of the num in indexVal is ++
     // keep adding ++ till end of loop
 
-    cleanedName.splice(3, 0, " ");
-    cleanedName.splice(11, 0, " ");
-    cleanedName.splice(20, 0, " ");
+//    cleanedName.splice(3, 0, " ");
+//    cleanedName.splice(11, 0, " ");
+//    cleanedName.splice(20, 0, " ");
 
     console.log(indexVal);
     console.log(cleanedName);
