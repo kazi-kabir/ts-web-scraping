@@ -46,11 +46,15 @@ export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): Com
     return convertedData;
 }
 
-export const splitStringByCapitalisation = (name: String)  => {
+export const splitStringByCapitalisation = (name: string)  => {
+
+    // remove substring
+    let conjunctionRemovedName = removeConjunctions(name);
+    console.log(conjunctionRemovedName)
 
     let cleanedName = [];
-    for(let i = 0; i < name.length; i++) {
-        cleanedName.push(name[i]);
+    for(let i = 0; i < conjunctionRemovedName.length; i++) {
+        cleanedName.push(conjunctionRemovedName[i]);
     }
 
     let specificCharacters: string[] = [];
@@ -62,25 +66,25 @@ export const splitStringByCapitalisation = (name: String)  => {
         }
     }
 
-    // loop through each char in array
-    // WHEN index value reaches index val array
-    // insert space before
-    // add 1 to each index val el
-
     for(let j = 0; j < cleanedName.length; j++) {
         if(indexVal.includes(j)) {
             if(j > 1) {
-                cleanedName.splice(j, 0, " ");
+                // cleanedName.splice(j, 0, " ");
+                
             }
         }
     }
-    
+
 //    cleanedName.splice(3, 0, " ");
 //    cleanedName.splice(11, 0, " ");
 //    cleanedName.splice(20, 0, " ");
 
     console.log(indexVal);
     console.log(cleanedName);
+}
+
+const removeConjunctions = (name: string) => {
+    return name.replace(/and/g, '')
 }
 
 splitStringByCapitalisation('SamBankmanFriedandLary');
