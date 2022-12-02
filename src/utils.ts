@@ -1,7 +1,9 @@
 import { CompanyData } from "./types";
 import wordlist from 'wordlist-english';
 
-let americanWords = wordlist['english/american'];
+let words = wordlist['english'];
+console.log(words.indexOf('graphic'));
+
 
 export const cleanData = (topCompanies: string[]): string[]  => {
     //topCompanies.length = 20;
@@ -71,14 +73,18 @@ export const splitStringByDictionaryWord = (industry: string) => {
     let industryNameInArray = [];
     for(let i = 0; i < industry.length; i++) {
         accumulateStringValues+= industry[i].toLowerCase();
-        let femboo = americanWords.indexOf(accumulateStringValues);
-        console.log(femboo)
-        console.log(accumulateStringValues)
+        let fembar = words.indexOf(accumulateStringValues);
+        console.log(words.indexOf(accumulateStringValues))
+        console.log(accumulateStringValues);
+        if(fembar !== -1) {
+            industryNameInArray.push(accumulateStringValues);
+        }
     }
+
+    console.log(industryNameInArray)
 
 }
 
-console.log(americanWords.indexOf('food'));
 
 // splitStringByDictionaryWord('Graphicdesign');
 
