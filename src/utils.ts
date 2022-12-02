@@ -1,4 +1,7 @@
 import { CompanyData } from "./types";
+import wordlist from 'wordlist-english';
+
+let americanWords = wordlist['english/american'];
 
 export const cleanData = (topCompanies: string[]): string[]  => {
     //topCompanies.length = 20;
@@ -26,7 +29,7 @@ export const cleanData = (topCompanies: string[]): string[]  => {
 };
 
 export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): CompanyData[] => {
-    companyDataArray.length = 10;
+    companyDataArray.length = 100;
 
     let convertedData: CompanyData[] = [];
     
@@ -50,16 +53,28 @@ export const splitStringByCapitalisation = (name: string)  => {
 
     // remove substring
     let conjunctionRemovedName = removeConjunctions(name);
-    console.log(conjunctionRemovedName)
 
     let cleanedName = [];
-    cleanedName = conjunctionRemovedName.match(/[A-Z][a-z]+/g);
-    console.log(cleanedName);
+    return cleanedName = conjunctionRemovedName.match(/[A-Z][a-z]+/g);
 }
 
 const removeConjunctions = (name: string) => {
     // TODO, remove commas
     return name.replace(/[, ]+/g, " ") && name.replace(/and/g, '')
 }
+
+export const splitStringByDictionaryWord = (industry: string) => {
+    // pass string with valid substring
+    // i.e Financialtechnology
+    // loop through the word and find out if the word exists
+
+    let industryNameInArray = [];
+    for(let i = 0; i < industry.length; i++) {
+        
+    }
+
+}
+
+splitStringByDictionaryWord();
 
 splitStringByCapitalisation('SamBankmanFriedandLary');
