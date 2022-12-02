@@ -67,14 +67,19 @@ export const splitStringByDictionaryWord = (industry: string) => {
     // pass string with valid substring
     // i.e Financialtechnology
     // loop through the word and find out if the word exists
-
+    let accumulateStringValues = '';
     let industryNameInArray = [];
     for(let i = 0; i < industry.length; i++) {
-        
+        accumulateStringValues+= industry[i].toLowerCase();
+        let femboo = americanWords.indexOf(accumulateStringValues);
+        console.log(femboo)
+        console.log(accumulateStringValues)
     }
 
 }
 
-splitStringByDictionaryWord();
+console.log(americanWords.indexOf('food'));
+
+// splitStringByDictionaryWord('Graphicdesign');
 
 splitStringByCapitalisation('SamBankmanFriedandLary');
