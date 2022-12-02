@@ -80,12 +80,21 @@ export const splitStringByDictionaryWord = (industry: string) => {
             industryNameInArray.push(accumulateStringValues);
         }
     }
+    console.log(industryNameInArray);
+
+    let finalIndexVal = industryNameInArray.length - 1
+    let lowercaseIndustry = industry.toLowerCase();
+    let femfoo = lowercaseIndustry.replace(industryNameInArray[finalIndexVal], "");
+    console.log(femfoo);
+
+    if(femfoo.length !== 0) {
+        industryNameInArray.push(femfoo);
+    }
 
     console.log(industryNameInArray)
-
 }
 
 
-splitStringByDictionaryWord('Financialtechnology');
+splitStringByDictionaryWord('Productivitysoftware');
 
 splitStringByCapitalisation('SamBankmanFriedandLary');
