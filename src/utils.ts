@@ -41,7 +41,7 @@ export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): Com
         let newObj: CompanyData = {
             company: stringArray[0],
             valuation: Number(stringArray[1]),
-            industry: stringArray[3],
+            industry: splitStringByDictionaryWord(stringArray[3]),
             country: stringArray[4],
             founders: splitStringByCapitalisation(stringArray[5]),
         }
@@ -92,6 +92,7 @@ export const splitStringByDictionaryWord = (industry: string) => {
     }
 
     console.log(industryNameInArray)
+    return industryNameInArray;
 }
 
 
