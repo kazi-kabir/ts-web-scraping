@@ -79,6 +79,12 @@ export const splitStringByDictionaryWord = (industry: string) => {
         if(fembar !== -1) {
             industryNameInArray.push(accumulateStringValues);
         }
+
+        if(industryNameInArray.length) {
+            let finalIndex = industryNameInArray.length - 1; 
+            let finalWord = industry.replace(industryNameInArray[finalIndex], " ")
+            console.log(finalWord)
+        }
     }
 
     console.log(industryNameInArray)
@@ -86,6 +92,6 @@ export const splitStringByDictionaryWord = (industry: string) => {
 }
 
 
-// splitStringByDictionaryWord('Graphicdesign');
+splitStringByDictionaryWord('Graphicdesign');
 
 splitStringByCapitalisation('SamBankmanFriedandLary');
