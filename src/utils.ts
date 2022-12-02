@@ -2,7 +2,7 @@ import { CompanyData } from "./types";
 import wordlist from 'wordlist-english';
 
 let words = wordlist['english'];
-console.log(words.indexOf('graphic'));
+console.log(words.indexOf('security'));
 
 
 export const cleanData = (topCompanies: string[]): string[]  => {
@@ -80,19 +80,20 @@ export const splitStringByDictionaryWord = (industry: string) => {
             industryNameInArray.push(accumulateStringValues);
         }
     }
-    console.log(industryNameInArray);
+    // console.log(industryNameInArray);
 
     let finalIndexVal = industryNameInArray.length - 1
     let lowercaseIndustry = industry.toLowerCase();
     let femfoo = lowercaseIndustry.replace(industryNameInArray[finalIndexVal], "");
-    console.log(femfoo);
+    // console.log(femfoo);
 
     if(femfoo.length !== 0) {
         industryNameInArray.push(femfoo);
+        return industryNameInArray.slice(-2);
     }
 
-    console.log(industryNameInArray)
-    return industryNameInArray;
+    // console.log(industryNameInArray)
+    return industryNameInArray.slice(-1);
 }
 
 
