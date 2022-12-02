@@ -74,16 +74,10 @@ export const splitStringByDictionaryWord = (industry: string) => {
     for(let i = 0; i < industry.length; i++) {
         accumulateStringValues+= industry[i].toLowerCase();
         let fembar = words.indexOf(accumulateStringValues);
-        console.log(words.indexOf(accumulateStringValues))
-        console.log(accumulateStringValues);
+        // console.log(words.indexOf(accumulateStringValues))
+        // console.log(accumulateStringValues);
         if(fembar !== -1) {
             industryNameInArray.push(accumulateStringValues);
-        }
-
-        if(industryNameInArray.length) {
-            let finalIndex = industryNameInArray.length - 1; 
-            let finalWord = industry.replace(industryNameInArray[finalIndex], " ")
-            console.log(finalWord)
         }
     }
 
@@ -92,6 +86,6 @@ export const splitStringByDictionaryWord = (industry: string) => {
 }
 
 
-splitStringByDictionaryWord('Graphicdesign');
+splitStringByDictionaryWord('Financialtechnology');
 
 splitStringByCapitalisation('SamBankmanFriedandLary');
