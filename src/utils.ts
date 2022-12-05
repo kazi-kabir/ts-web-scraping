@@ -31,7 +31,7 @@ export const cleanData = (topCompanies: string[]): string[]  => {
 };
 
 export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): CompanyData[] => {
-    companyDataArray.length = 100;
+    companyDataArray.length = 0;
 
     let convertedData: CompanyData[] = [];
     
@@ -67,6 +67,18 @@ const removeConjunctions = (name: string) => {
 
 // TODO recursively select and remove the THIRD word
 export const splitStringByDictionaryWord = (industry: string) => {
+    // for now just adding a bunch of returns for the damn values that give me pain
+    console.log(industry);
+    
+    if(industry === 'cybersecurity') {
+        return 'cybersecurity'
+    }
+
+    if(industry === 'cryptocurrency') {
+        return 'cryptocurrency'
+    }
+
+
     // pass string with valid substring
     // i.e Financialtechnology
     // loop through the word and find out if the word exists
@@ -90,6 +102,7 @@ export const splitStringByDictionaryWord = (industry: string) => {
 
     if(femfoo.length !== 0) {
         industryNameInArray.push(femfoo);
+        console.log(femfoo)
         return industryNameInArray.slice(-2).toString().replace(/[, ]+/g, " ").replace("-", "");
     }
 
@@ -99,6 +112,6 @@ export const splitStringByDictionaryWord = (industry: string) => {
     return industryNameInArray.slice(-1).toString().replace(/[, ]+/g, " ").replace("-", "");
 }
 
-splitStringByDictionaryWord('Productivitysoftware');
+splitStringByDictionaryWord('cybersecurity');
 
 splitStringByCapitalisation('SamBankmanFriedandLary');
