@@ -92,6 +92,8 @@ export const splitStringByDictionaryWord = (industry: string) => {
         return industryNameInArray.slice(-2);
     }
 
+    // find a way to skip single iterations 
+
     // console.log(industryNameInArray)
     return industryNameInArray.slice(-1);
 }
