@@ -89,23 +89,14 @@ export const splitStringByDictionaryWord = (industry: string) => {
 
     if(femfoo.length !== 0) {
         industryNameInArray.push(femfoo);
-        return industryNameInArray.slice(-2).toString().replace(/[, ]+/g, " ");
+        return industryNameInArray.slice(-2).toString().replace(/[, ]+/g, " ").replace("-", "");
     }
 
     // find a way to skip single iterations 
 
     // console.log(industryNameInArray)
-    return industryNameInArray.slice(-1).toString().replace(/[, ]+/g, " ");
+    return industryNameInArray.slice(-1).toString().replace(/[, ]+/g, " ").replace("-", "");
 }
-
-export const hardcodedReturnStrings = (industry: string) => {
-    let lowerCasedIndustry = industry.toLowerCase();
-    
-    if(lowerCasedIndustry === 'cybersecurity') {
-        return []
-    }
-}
-
 
 splitStringByDictionaryWord('Productivitysoftware');
 
