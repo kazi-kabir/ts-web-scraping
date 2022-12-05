@@ -89,13 +89,13 @@ export const splitStringByDictionaryWord = (industry: string) => {
 
     if(femfoo.length !== 0) {
         industryNameInArray.push(femfoo);
-        return removeConjunctions(industryNameInArray.slice(-2).toString());
+        return industryNameInArray.slice(-2).toString().replace(/[, ]+/g, " ");
     }
 
     // find a way to skip single iterations 
 
     // console.log(industryNameInArray)
-    return removeConjunctions(industryNameInArray.slice(-1).toString());
+    return industryNameInArray.slice(-1).toString().replace(/[, ]+/g, " ");
 }
 
 export const hardcodedReturnStrings = (industry: string) => {
