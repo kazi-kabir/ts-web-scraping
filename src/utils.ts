@@ -65,6 +65,7 @@ const removeConjunctions = (name: string) => {
     return name.replace(/[, ]+/g, " ") && name.replace(/and/g, '')
 }
 
+// TODO recursively select and remove the THIRD word
 export const splitStringByDictionaryWord = (industry: string) => {
     // pass string with valid substring
     // i.e Financialtechnology
