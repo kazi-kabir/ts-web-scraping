@@ -31,7 +31,7 @@ export const cleanData = (topCompanies: string[]): string[]  => {
 };
 
 export const createArrayOfCompanyDataObjects = (companyDataArray: string[]): CompanyData[] => {
-    companyDataArray.length = 0;
+    companyDataArray.length = 10;
 
     let convertedData: CompanyData[] = [];
     
@@ -56,8 +56,9 @@ export const splitStringByCapitalisation = (name: string)  => {
     // remove substring
     let conjunctionRemovedName = removeConjunctions(name);
 
-    let cleanedName = [];
-    return cleanedName = conjunctionRemovedName.match(/[A-Z][a-z]+/g);
+    let cleanedName = conjunctionRemovedName.match(/[A-Z][a-z]+/g);
+
+    return cleanedName.join(' ');
 }
 
 const removeConjunctions = (name: string) => {
@@ -70,18 +71,10 @@ export const splitStringByDictionaryWord = (industry: string) => {
     // for now just adding a bunch of returns for the damn values that give me pain
     console.log(industry);
     
-    if(industry === 'cybersecurity') {
-        return 'cybersecurity'
-    }
+    if(industry === 'cybersecurity') return;
 
-    if(industry === 'cryptocurrency') {
-        return 'cryptocurrency'
-    }
+    if(industry === 'cryptocurrency') return;
 
-
-    // pass string with valid substring
-    // i.e Financialtechnology
-    // loop through the word and find out if the word exists
     let accumulateStringValues = '';
     let industryNameInArray = [];
     for(let i = 0; i < industry.length; i++) {
@@ -112,6 +105,6 @@ export const splitStringByDictionaryWord = (industry: string) => {
     return industryNameInArray.slice(-1).toString().replace(/[, ]+/g, " ").replace("-", "");
 }
 
-splitStringByDictionaryWord('cybersecurity');
-
+let res =splitStringByDictionaryWord('cryptocurrency');
+console.log(res);
 splitStringByCapitalisation('SamBankmanFriedandLary');
