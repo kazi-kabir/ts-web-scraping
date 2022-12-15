@@ -4,3 +4,6 @@ using this tutorial -> https://dev.to/caelinsutch/building-a-web-scraper-in-type
 
 a small ts web-scraper which was inspired from the code in the tutorial above.
 
+start server
+
+`npm run-dev`
